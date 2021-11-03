@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const handleClick = (e) => {
+
+    const imgPositionX = e.target.getBoundingClientRect().left
+    const imgPositionY = e.target.getBoundingClientRect().top
+    const clickX = e.clientX
+    const clickY = e.clientY
+    const imgCoordX = () => clickX - imgPositionX;
+    const imgCoordY = () => clickY - imgPositionY;
+
+    console.log(imgCoordX())
+    console.log(imgCoordY())
+
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <img onClick={handleClick} className="image__one" alt=""></img>
     </div>
   );
 }
 
 export default App;
+
